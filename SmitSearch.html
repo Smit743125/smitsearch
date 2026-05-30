@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit_Search</title>
+<style>
+                                    /* Evey Code of CSS Stands here */
+
+
+.built-by{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+}
+
+    .shortcuts button{
+    width: 110px;
+    height: 42px;
+    border-radius: 30px;
+    border: 2px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.shortcuts {
+    display: flex;
+    gap: 20px;  
+    justify-content: center;
+    margin-top: 390px;
+}
+    .shortcuts button:hover{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+
+}
+
+.input {
+        width: 55%;
+        height: 53px;
+        border: 4px solid #ccc;
+        border-radius: 40px;
+        padding-left: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: rgb(255, 255, 255);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        transition: 0.6s;
+}
+
+
+.input::placeholder{
+    color: rgba(255,255,255,1.0);
+}
+
+.input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.6s;
+}
+
+input:hover {
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+}
+
+
+.SearchBoxContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 350px;
+}
+
+                                    
+/* 
+=================================These are the only thing not working so I replaced them with Digital weather. I'm so sorry... ==================================
+
+.login{
+    position: absolute;
+    top: 15px;
+    right: 160px;
+    width: 80px;
+    height: 40px;
+    background-color: transparent;
+    border: white solid 2px;
+    border-radius: 20px;
+    font-size: 15.1px;
+    font-weight: bold;
+    color: rgb(36, 123, 173);
+    transition: 0.8s;
+}
+
+
+.signup {
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    border: white solid 2px; 
+    border-radius: 20px;
+    font-size: 15.1px;
+    font-weight: bold;
+    color: rgb(29, 23, 23);
+    transition: 0.8s;
+}
+
+
+
+
+.login:hover{
+    box-shadow: 0 0 15px  rgb(255, 255, 255);
+    background-color: white;
+    color: rgb(36, 123, 173);
+    border: white solid 2px;
+    transform: scale(1.05);
+}
+
+
+.signup:hover{
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(36, 123, 173);
+    border: white solid 2px;
+    transform: scale(1.05);
+} */
+
+
+
+.SmitSearch {
+    color: white;
+    margin-left: 40px;
+    margin-top: -386px;
+    font-size:28px;                     /*28px */
+    font-weight: bold;
+}
+
+.ai{
+
+    width: 100px;
+    height: 40px;
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    transition: 0.5s;
+}
+
+
+/* RGB BORDER */
+.ai::before{
+
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 22px;
+
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+
+    background-size: 300%;
+    z-index: -2;
+    animation: rgbMove 4s linear infinite;
+}
+
+
+/* INNER LAYER */
+.ai::after{
+
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 18px;
+    background: rgba(15,15,15,0.85);
+    z-index: -1;
+}
+
+
+.ai-container{
+
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* RGB MOVEMENT */
+@keyframes rgbMove{
+
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 300%;
+    }
+}
+
+.ai:hover{
+    transform: scale(1.1);
+}
+
+
+.ai-panel{
+
+    width: 250px;
+    height: 300px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    position: absolute;
+
+    bottom: 60px;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: white;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+
+.ai-panel.open{
+
+    opacity: 1;
+    pointer-events: auto;
+    font-weight: bold;
+}
+
+.chat-area{
+
+    height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.input-area{
+
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+.chat-input{
+
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    outline: none;
+}
+
+
+.send-btn{
+
+    width: 70px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/*======================= Weather Stuff!!!======================= */
+.weather-box{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 15px;
+    background: transparent;
+    backdrop-filter: blur(8px);
+    color: white;
+    font-family: "Exo", sans-serif;
+    border: transparent;
+}
+.city, .condition{
+
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+        body {
+            background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);/* background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);           */
+            font-family: Arial, fallback, sans-serif;
+            margin: 0vh; /* Adjust the top margin to position the content */
+            height: 100vh;
+            background-repeat: no-repeat;  
+            overflow: hidden;
+        
+    }
+
+
+.clock {
+    position: absolute;
+    top: 130px;
+    left: 49.5%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: rgba(255,255,255,1);
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    font-size: 70px;
+    transition: 0.8s;
+    transition-timing-function: ease-in-out;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 200;
+    letter-spacing: 8px;
+    font-family: "Exo", sans-serif;
+    font-weight: 300;
+}
+
+
+.clock:hover {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+    transform: translateX(-50%) scale(1.2);
+}
+
+.time-status {
+    font-size: 18px;
+    opacity: 0.8;
+    letter-spacing: 3px;
+}
+
+.time-status {
+    position: absolute;
+    top: 262px;
+    left: 49.5%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,1);
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    transition: 0.8s;
+    transition-timing-function: ease-in-out;
+    font-family: "Exo", sans-serif;
+    font-weight: 300;
+}
+
+.time-status:hover {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+
+
+/* ================================================ Background ================================================= */
+
+
+.moon{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+
+    background: radial-gradient(circle at center,
+    #f5f5f5,
+    #d9d9d9,
+    #a6a6a6);
+
+    box-shadow: 0 0 40px rgba(255,255,255,0.8);
+    opacity: 0;
+}
+
+
+@keyframes moonCycle {
+
+    /* 🌞 hidden during day */
+    0% {
+        left: -10%;
+        top: 80%;
+        opacity: 0;
+    }
+
+    42% {
+        opacity: 0;
+    }
+
+    /* 🌙 moonrise starts EARLIER */
+    45% {
+        left: -10%;
+        top: 80%;
+        opacity: 0;
+    }
+
+    /* 🌌 appears faster */
+    50% {
+        opacity: 1;
+    }
+
+    /* 🌕 reaches peak sooner */
+    60% {
+        left: 50%;
+        top: 5%;
+        opacity: 0.8;
+    }
+
+    /* 🌙 starts leaving earlier */
+    72% {
+         left: 72%;  /*72 */
+        top: 5%;   /*25 */
+        opacity: 0.6;
+    }
+
+    /* 🌌 fading before dawn */
+    80% {
+        left: 100%;  /*88 */
+        top: 42%;   /*55 */
+        opacity: 0.2;
+    }
+
+    /* 🌅 fully gone BEFORE morning */
+    100% {
+        left: 110%;
+        top: 55%;
+        opacity: 0;
+    }
+}
+
+
+
+.sun{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 221, 0, 20);
+    position: absolute;
+    background: radial-gradient(circle at center, #ffdd00, #ff9900);
+}
+
+@keyframes sunCycle {
+
+    /* 🌅 sunrise */
+    0% {
+        left: -10%;
+        top: 90%;
+        opacity: 0;
+    }
+
+    /* 🌞 appears smoothly */
+    5% {
+        opacity: 1;
+    }
+
+    /* ☀️ reaches center at 12s */
+    20% {
+        left: 50%;
+        top: 5%;
+        opacity: 0.7;
+    }
+
+    /* 🌇 keeps SAME SPEED downward */
+    35% {
+        left: 70%;
+        top: 25%;
+        opacity: 0.5;
+    }
+
+    /* 🌇 near sunset */
+    45% {
+        left: 85%;
+        top: 55%;
+        opacity: 0;
+    }
+    47% {
+        opacity: 0;
+    }
+    /* 🌙 gone before night */
+    50% {
+        opacity: 0;
+        left: 110%;
+        top: 80%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+/* ================= MORNING - DAY ================= */
+.morning-day{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #87CEEB,
+        #BFE9FF,
+        #EAF8FF
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    transition: opacity 2.5s ease-in-out;
+}
+
+@keyframes morningDayTransition {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ================= DAY - EVENING ================= */
+.day-evening{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #4DA8FF,
+        #7EC8FF,
+        #DDF4FF
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -3;
+    transition: opacity 2.5s ease-in-out;
+}
+
+@keyframes dayEveningTransition {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ================= EVENING - NIGHT ================= */
+.evening-night{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #FF8C42,
+        #D96CFF,
+        #2B1055
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -4;
+    transition: opacity 2.5s ease-in-out;
+}
+
+@keyframes eveningNightTransition {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ================= DEEP NIGHT ================= */
+.night-deep{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #0B1026,
+        #111B3A,
+        #1B2B5A
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    transition: opacity 2.5s ease-in-out;
+}
+
+@keyframes nightDeepTransition {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ================= NIGHT - MORNING ================= */
+.night-morning{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #1A2340,
+        #3B4C7A,
+        #F6B27A
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -6;
+    transition: opacity 2.5s ease-in-out;
+}
+
+@keyframes nightMorningTransition {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.particles{
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle{
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 4px;
+
+    background: rgba(255,255,255,0.7);
+
+    border-radius: 70%;
+
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp{
+
+    from{
+
+        transform: translateY(100vh);
+
+        opacity: 0;
+    }
+
+    to{
+
+        transform: translateY(-10vh);
+
+        opacity: 1;
+    }
+}
+
+/* .day-particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+@keyframes windMove {
+    from {
+        transform: translateX(-10vw);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    to {
+        transform: translateX(110vw);
+        opacity: 0;
+    }
+}
+
+.particle.wind {
+    animation: windMove linear infinite;
+} */
+
+
+</style>
+</head>
+<body>
+
+
+
+<!-- /* ================================================== buttons and stuff ===================================================  */ -->
+
+
+<div class="SearchBoxContainer">
+<input type="text" class="input" id="SearchBox" placeholder="Search it...">
+</div>
+
+
+
+<div class="sun"></div>
+<div class="moon"></div>
+<div class="morning-day"></div>
+<div class="day-evening"></div>
+<div class="evening-night"></div>
+<div class="night-deep night"></div>
+<div class="night-morning"></div>
+
+
+<h2 class="clock" id="clock">00:00:00</h2>
+<h1 class= "SmitSearch"> SmitSearch </h1>
+<h4 class="built-by"> Built by Smit ⚡</h4>
+
+
+<div class="ai-container">
+
+    <button class="ai">AI</button>
+
+<div class="ai-panel">
+
+    <div class="chat-area"></div>
+    <div class="input-area">
+        
+        <input type="text"
+        class="chat-input"
+        placeholder="Ask AI...">
+
+        <button type="button" class="send-btn">
+            Send
+        </button>
+
+    </div>
+</div> 
+</div>
+
+
+<div class="weather-box">
+<div class="day-wind-particles"></div>
+
+    <h3 id="temp">27°C .</h3>
+    <p class="city" id="city">Kolkata.</p>
+    <p class="condition" id="condition">⛈ Thunderstorm </p>
+
+</div>
+
+<div class="particles"></div>
+
+
+<!--
+I'm Sorry.. I really don't wanna remove these buttons. These two were the first Buttons of my Web😭😭. but currently they are not working and 
+also I feel no need of them. Right now I don't have time to fix them and also no need. so I replaced them with the shortcuts to the websites 
+and the digital clock which is working perfectly fine and also looks good on the website so I hope you understand and forgive me for this
+ decision. They Were the First Foundation of this website. It really hurts to remove them but I have to do it for the betterment of the website.
+  I hope you understand and forgive me for this decision
+
+<button class="login">Login</button>
+<button class="signup">Sign Up</button> -->
+
+
+<div class="shortcuts">
+
+<button class="youtube" id="youtube-btn" >YouTube</button>
+
+<button class="instagram" id="instagram-btn">Instagram</button>
+
+<button class="github" id="github-btn">GitHub </button>
+
+<button class="chatgpt" id="chatgpt-btn">ChatGPT</button>
+
+<button class="whatsapp" id="whatsapp-btn">WhatsApp</button>
+
+
+
+</div>
+
+
+<h2 class="clock" id="clock"></h2>
+<p class="time-status" id="time-status"></p>
+
+
+
+
+<!-- /* ================================================== All JavaScript Code ================================================== */ -->
+ <script>
+/* ================================= SEARCH FUNCTIONS ================================= */
+
+function searchYouTube() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://www.youtube.com/results?search_query=" + text;
+}
+
+document.getElementById("youtube-btn")
+.addEventListener("click", searchYouTube);
+
+
+function searchInstagram() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://www.instagram.com/" + text;
+}
+
+document.getElementById("instagram-btn")
+.addEventListener("click", searchInstagram);
+
+
+function searchGitHub() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://github.com/search?q=" + text;
+}
+
+document.getElementById("github-btn")
+.addEventListener("click", searchGitHub);
+
+
+function searchChatGPT() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://chatgpt.com/?q=" + text;
+}
+
+document.getElementById("chatgpt-btn")
+.addEventListener("click", searchChatGPT);
+
+
+function searchWhatsApp() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://web.whatsapp.com/send?text=" + text;
+}
+
+document.getElementById("whatsapp-btn")
+.addEventListener("click", searchWhatsApp);
+
+
+function searchGoogle() {
+    let text = document.getElementById("SearchBox").value;
+    window.location.href =
+    "https://www.google.com/search?q=" + text;
+}
+
+document.getElementById("SearchBox")
+.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+        searchGoogle();
+    }
+});
+
+
+/* ================================= CLOCK ================================= */
+
+function updateClock() {
+
+    const now = new Date();
+
+    let hours = now.getHours();
+
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    const ampm = hours >= 12 ? 'OF Evening' : 'OF Morning';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    document.getElementById('clock').textContent =
+    `${hours}:${minutes}:${seconds}`;
+
+    document.getElementById('time-status').textContent =
+    ampm;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+
+/* ================================= ENVIRONMENT ================================= */
+
+function updateEnvironment() {
+
+    const now = new Date();
+    const hours = now.getHours();
+
+    const sun = document.querySelector('.sun');
+    const moon = document.querySelector('.moon');
+
+    const morningDay = document.querySelector('.morning-day');
+    const dayEvening = document.querySelector('.day-evening');
+    const eveningNight = document.querySelector('.evening-night');
+    const nightDeep = document.querySelector('.night-deep');
+    const nightMorning = document.querySelector('.night-morning');
+
+    /* RESET */
+    sun.style.opacity = '0';
+    moon.style.opacity = '0';
+
+    morningDay.style.opacity = '0';
+    dayEvening.style.opacity = '0';
+    eveningNight.style.opacity = '0';
+    nightDeep.style.opacity = '0';
+    nightMorning.style.opacity = '0';
+
+    /* 🌄 DAWN */
+    if(hours >= 4 && hours < 6){
+        nightMorning.style.opacity = '1';
+
+        moon.style.opacity = '0.3';
+        moon.style.left = '80%';
+        moon.style.top = '15%';
+    }
+
+    /* 🌅 MORNING */
+    else if(hours >= 6 && hours < 12){
+        morningDay.style.opacity = '1';
+
+        sun.style.opacity = '1';
+        sun.style.left = '20%';
+        sun.style.top = '20%';
+    }
+
+    /* ☀️ DAY */
+    else if(hours >= 12 && hours < 17){
+        dayEvening.style.opacity = '1';
+
+        sun.style.opacity = '1';
+        sun.style.left = '50%';
+        sun.style.top = '5%';
+    }
+
+    /* 🌇 EVENING */
+    else if(hours >= 17 && hours < 19){
+        eveningNight.style.opacity = '1';
+
+        sun.style.opacity = '1';
+        sun.style.left = '80%';
+        sun.style.top = '30%';
+    }
+
+    /* 🌙 NIGHT */
+    else {
+        nightDeep.style.opacity = '1';
+
+        moon.style.opacity = '0.7';
+        moon.style.left = '50%';
+        moon.style.top = '10%';
+    }
+}
+
+setInterval(updateEnvironment, 1000);
+updateEnvironment();
+
+/* ================= TYPING PLACEHOLDER EFFECT ================= */
+
+const placeholders = [
+
+    "Just Search it on Google...",
+    "Wanna scroll reels? YouTube Here!...",
+    "upload your project using GitHub...",
+    "Ask ChatGPT...",
+    "What's going on Instagram...",
+    "Message on WhatsApp..."
+
+];
+
+const searchBox = document.getElementById("SearchBox");
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+
+    let currentText = placeholders[textIndex];
+
+    if(isDeleting){
+        searchBox.placeholder =
+        currentText.substring(0, charIndex--);
+
+    }
+
+    else {
+        searchBox.placeholder =
+        currentText.substring(0, charIndex++);
+    }
+
+    let speed = isDeleting ? 150 : 125;
+
+    /* typing finished */
+    if(!isDeleting && charIndex === currentText.length + 1){
+
+        speed = 1500;
+        isDeleting = true;
+    }
+
+    /* deleting finished */
+    else if(isDeleting && charIndex === 0){
+
+        isDeleting = false;
+        textIndex++;
+        if(textIndex >= placeholders.length){
+            textIndex = 0;
+        }
+
+        speed = 400;
+    }
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+
+
+
+// .................============================== AI PANEL ==============================.................
+
+
+const aiButton = document.querySelector(".ai");
+const panel = document.querySelector(".ai-panel");
+const sendBtn = document.querySelector(".send-btn");
+const chatInput = document.querySelector(".chat-input");
+const chatArea = document.querySelector(".chat-area");
+
+aiButton.addEventListener("click", function(){
+    panel.classList.toggle("open");
+});
+
+chatInput.addEventListener("keydown", function(event){
+    panel.classList.add("open");
+    if(event.key === "Enter"){
+        sendBtn.click();
+    }
+});
+
+sendBtn.addEventListener("click", function(){
+
+    console.log("SEND WORKING");
+    const message = chatInput.value;
+    if(message === "") return;
+
+    
+    /* USER MESSAGE */
+    const userMessage = document.createElement("div");
+    userMessage.textContent = message;
+    userMessage.style.color = "white";
+    userMessage.style.background =
+    "rgba(255,255,255,0.1)";
+    userMessage.style.padding = "10px";
+    userMessage.style.borderRadius = "15px";
+    userMessage.style.alignSelf = "flex-end";
+    chatArea.appendChild(userMessage);
+
+
+    /* FAKE AI REPLY */
+    const aiMessage = document.createElement("div");
+    aiMessage.textContent =
+    "Hello Smit 😄";
+    aiMessage.style.color = "white";
+    aiMessage.style.background =
+    "rgba(255,255,255,0.05)";
+    aiMessage.style.padding = "10px";
+    aiMessage.style.borderRadius = "15px";
+    aiMessage.style.alignSelf = "flex-start";
+    chatArea.appendChild(aiMessage);
+
+
+    chatInput.value = "";
+
+});
+
+// ............==============Weather API and all stuff............==============
+
+const apiKey = "2c65bda0e381c8129f371f11cf8f74c2";
+
+async function getWeather() {
+
+    const city = "Kolkata";
+
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    console.log(data);
+
+    if(data.main){
+
+        document.getElementById("temp").textContent =
+        Math.round(data.main.temp) + "°C";
+
+        document.getElementById("city").textContent =
+        data.name;
+
+        document.getElementById("condition").textContent =
+        data.weather[0].main;
+
+    }
+
+    else{
+
+        console.log("API ERROR:", data.message);
+
+    }
+}
+
+getWeather();
+
+
+// ..........===============Night Particals====================.............
+
+const particleContainer = document.querySelector(".particles"); // ✅ REQUIRED FIX
+
+function createParticles(mode = "night") {
+
+    particleContainer.innerHTML = ""; // important: prevents mixing
+
+    for (let i = 0; i < 30; i++) {
+
+        const p = document.createElement("div");
+        p.classList.add("particle");
+
+        // random size
+        let size = Math.random() * 4 + 2;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+
+        // random position
+        p.style.top = Math.random() * 100 + "vh";
+
+        if (mode === "day") {
+
+            // p.classList.add("wind");
+
+            p.style.left = "-10vw";
+            p.style.animationDuration = (Math.random() * 5 + 4) + "s";
+
+            // FIX: missing animation setup for wind (optional)
+            p.style.animationName = "floatUp";
+            p.style.animationTimingFunction = "linear";
+            p.style.animationIterationCount = "infinite";
+
+        } else {
+
+            // night mode (your existing style)
+            p.style.left = Math.random() * 100 + "vw";
+
+            p.style.animation = "floatUp linear infinite";
+            p.style.animationDuration = (Math.random() * 5 + 3) + "s";
+        }
+
+        particleContainer.appendChild(p); // ❗ WAS MISSING / COMMENTED BEFORE
+    }
+}
+
+
+// IMPORTANT: actually start particles
+createParticles("night");
+
+
+// // ..........===============Day paticals====================.............
+
+// if (hours >= 6 && hours < 19) {
+//     createParticles("day");
+// } else {
+//     createParticles("night");
+// }
+
+// function createDayParticles() {
+
+// const dayContainer = document.querySelector(".day-particles");
+
+
+//     dayContainer.innerHTML = ""; // prevent stacking
+
+//     for (let i = 0; i < 25; i++) {
+
+//         const p = document.createElement("div");
+//         p.classList.add("day-particle");
+
+//         p.style.animationName = "floatUp";
+//         p.style.animationTimingFunction = "linear";
+//         p.style.animationIterationCount = "infinite";
+
+//         dayContainer.appendChild(p);
+//     }
+// }
+
+// // ...............===============Controler of particals================....................
+
+// function updateParticlesMode() {
+
+//     const hours = new Date().getHours();
+
+//     if (hours >= 6 && hours < 19) {
+//         createParticles("day");
+//     } else {
+//         createParticles("night");
+//     }
+// }
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- <p>this is an example in case if I use it later *bro I litrally wrote latter on the place of later🤣🤣</p> -->
+    <!--           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Nature Image"          COMMENT OUT> -->
+    <!--           <input type="text" placeholder="Search...">             -->
+    
+    <!--                  padding: 8px;
+                              border: 1px solid #ccc;
+                                 border-radius: 4px;               -->
+
+
+
+
+
+<!--.youtube:hover,
+ .instagram:hover,
+.github:hover,
+.chatgpt:hover {
+
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+
+    background-color: white;
+
+    color: rgb(36, 123, 173);
+
+    border: white solid 2px;
+
+    transition: 0.8s;
+
+    transform: scale(1.05);
+
+} -->
